@@ -1,4 +1,7 @@
-d = [0] * 100
+from sys import setrecursionlimit
+
+d = [0] * 4001
+setrecursionlimit(5000)
 
 
 def fibo(x):
@@ -10,4 +13,4 @@ def fibo(x):
     return d[x]
 
 
-print(fibo(3))
+print(fibo(4000))
