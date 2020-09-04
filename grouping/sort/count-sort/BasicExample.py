@@ -1,14 +1,31 @@
-array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+import random
+import time
 
-count_array = [0] * (max(array) + 1)
-for value in array:
-    count_array[value] += 1
 
-for i in range(len(count_array)):
-    for j in range(count_array[i]):
-        print(i, end=' ')
+def count_sort(arr):
+    count_array = [0] * (max(arr) + 1)
+    answer = []
+    for value in arr:
+        count_array[value] += 1
 
-for i in range(len(count_array)):
-    print(i, end=' ')
-    if i > 1:
-        continue
+    for i in range(len(count_array)):
+        for j in range(count_array[i]):
+            answer.append(i)
+    return answer
+
+
+big_array = []
+for i in range(1000000):
+    big_array.append(random.randrange(0, 1000000))
+
+start = time.time()
+print(count_sort(big_array))
+end = time.time()
+
+py_start = time.time()
+big_array.sort()
+print(big_array)
+py_end = time.time()
+
+print('계수 정렬 시간 : ' + str(end - start))
+print('내장 정렬 시간 : ' + str(py_end - py_start))
