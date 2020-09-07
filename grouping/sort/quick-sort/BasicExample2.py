@@ -13,7 +13,7 @@ def quick_sort(array):
 
     left_side = [x for x in tail if x <= pivot]
     right_side = [x for x in tail if x > pivot]
-
+ 
     answer = quick_sort(left_side) + [pivot] + quick_sort(right_side)
     return answer
 
