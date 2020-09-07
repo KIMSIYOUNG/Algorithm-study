@@ -1,3 +1,26 @@
+'''
+INPUT
+6 11
+1
+1 2 2
+1 3 5
+1 4 1
+2 3 3
+2 4 2
+3 2 3
+3 6 5
+4 3 3
+4 5 1
+5 3 1
+5 6 2
+OUTPUT
+0
+2
+3
+1
+2
+4
+'''
 import sys
 
 input = sys.stdin.readline
@@ -13,6 +36,8 @@ for _ in range(m):
     a, b, c = map(int, input().split())
     graph[a].append((b, c))
 
+print(graph)
+
 
 def get_smallest_node():
     min_value = INF
@@ -27,7 +52,6 @@ def get_smallest_node():
 def dijkstra(start):
     distance[start] = 0
     visited[start] = True
-    print(graph)
     for j in graph[start]:
         print(distance[j[0]])
         print(j[0])
